@@ -29,7 +29,7 @@ class PopSpider(scrapy.Spider):
 
 				yield prodResponse
 
-	def parse(self, response):		
+	def parse(self, response):
 		rows = response.css('div.result-content li')		
 
 		for row in rows:
