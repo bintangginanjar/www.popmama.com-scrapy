@@ -9,7 +9,14 @@ Clone the repo without git :
 
 ## **Setup Python using Anaconda**
 - Download Anaconda from following [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
-- Follow the installation steps, and make sure python 3 is successfully installed in your machine :  
+- Follow the installation steps, and make sure python 3 is successfully installed in your machine : `python --version`
 
-`python --version`
+## **Install Python IDE**
+You can use your favorite IDE :
+- [PyCharm](https://www.jetbrains.com/edu-products/download/#section=pycharm-edu)
+- [Visual Code](https://code.visualstudio.com/Download)
+- [Spyder](https://docs.spyder-ide.org/current/installation.html)
+- [Sublime Text](https://www.sublimetext.com/3)
+- etc
 
+## **Install Scrapy**
