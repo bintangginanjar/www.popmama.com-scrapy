@@ -9,7 +9,9 @@ Clone the repo without git :
 
 ## **Setup Python using Anaconda**
 - Download Anaconda from following [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
-- Follow the installation steps, and make sure python 3 is successfully installed in your machine : `python --version`
+- Follow the installation steps, and make sure python 3 is successfully installed in your machine : 
+
+`python --version`
 
 ## **Install Python IDE**
 You can use your favorite IDE :
@@ -20,3 +22,10 @@ You can use your favorite IDE :
 - etc
 
 ## **Install Scrapy**
+Since we've already install Anaconda, we can install Scrapy using following command
+
+`conda install -c conda-forge scrapy`
+
+Alternatively we can use pip command
+
+`pip install Scrapy`
