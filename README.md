@@ -29,3 +29,9 @@ Since we've already install Anaconda, we can install Scrapy using following comm
 Alternatively we can use pip command
 
 `pip install Scrapy`
+
+## **Running Scrapy**
+- Enter extracted directory
+- Simply put following commands into your shell
+
+`scrapy crawl pop`
