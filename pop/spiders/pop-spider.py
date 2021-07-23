@@ -11,7 +11,7 @@ class PopSpider(scrapy.Spider):
         'FEED_EXPORT_FIELDS': [
             'nama',
 			'gender',            
-			'asalBahasa',
+			'asalNama',
 			'artiNama'
         ]
     }
@@ -53,5 +53,6 @@ class PopSpider(scrapy.Spider):
 			loader.add_value('gender', 'laki-laki')
 		else:
 			loader.add_value('gender', 'perempuan')
+		#loader.add_value('asalNama', 'default')
 
 		yield loader.load_item()

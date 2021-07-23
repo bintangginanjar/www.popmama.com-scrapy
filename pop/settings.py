@@ -12,12 +12,14 @@ BOT_NAME = 'pop'
 SPIDER_MODULES = ['pop.spiders']
 NEWSPIDER_MODULE = 'pop.spiders'
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'pop (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
+
+# Configure connection string for database connection
+CONNECTION_STRING = 'sqlite:///scrapy_names.db'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -64,6 +66,7 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'pop.pipelines.DataCleanPipeline': 100,
+    'pop.pipelines.DataSavePipeline': 200,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

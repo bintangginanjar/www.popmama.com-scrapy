@@ -18,3 +18,12 @@ def dbConnect():
 
 def createTable(engine):
     Base.metadata.create_all(engine)
+
+class Name(Base):
+    __tablename__ = "name"
+
+    id = Column(Integer, primary_key=True)
+    nama = Column('nama', Text())
+    gender = Column('gender', Text())
+    asalNama = Column('asalNama', Text())
+    artiNama = Column('artiNama', Text())

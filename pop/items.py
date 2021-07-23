@@ -14,7 +14,7 @@ class PopItem(scrapy.Item):
     #nama = Field(input_processor = MapCompose(removeNewLine), output_processor = TakeFirst())
     nama = Field()
     gender = Field()
-    asalBahasa = Field()
+    asalNama = Field()
     artiNama = Field(output_processor = Join(separator = '; '))
         
     pass
