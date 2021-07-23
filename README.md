@@ -4,10 +4,6 @@
 
 <img src="https://i.postimg.cc/5yyGxJdj/2021-07-23-09-35.png" width="480" height="320">
 
-- Result file
-
-
-
 ## **Clone or Download this Repository**
 If you have `git` installed in your machine :
 `gh repo clone bintangginanjar/www.popmama.com-scrapy`
