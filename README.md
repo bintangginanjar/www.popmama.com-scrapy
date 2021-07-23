@@ -1,7 +1,7 @@
 ## **Program description**
 - Scrape baby names from [https://www.popmama.com/] (https://www.popmama.com/) using scrapy
 - The page that will be scraped
-[![2021-07-23-09-35.png](https://i.postimg.cc/5yyGxJdj/2021-07-23-09-35.png)](https://postimg.cc/ctqTmVJN)
+<img src="https://postimg.cc/ctqTmVJN" width="100" height="100">
 
 
 ## **Clone or Download this Repository**
