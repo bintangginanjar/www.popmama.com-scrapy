@@ -21,6 +21,11 @@ ROBOTSTXT_OBEY = False
 # Configure connection string for database connection
 CONNECTION_STRING = 'sqlite:///scrapy_names.db'
 
+# Configure for support excel output
+FEED_EXPORTERS = {
+    'xlsx': 'scrapy_xlsx.XlsxItemExporter',
+}
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
