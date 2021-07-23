@@ -1,4 +1,4 @@
-## **Program description**
+## **About**
 - Scrape baby names from https://www.popmama.com/ using scrapy
 - Example page that will be scraped can be found [here](https://www.popmama.com/baby-name/abraham)
 

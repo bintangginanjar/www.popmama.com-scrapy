@@ -10,9 +10,9 @@ class PopSpider(scrapy.Spider):
 	custom_settings = {
         'FEED_EXPORT_FIELDS': [
             'nama',
-			'gender',
-            'artiNama',
-			'asalBahasa'
+			'gender',            
+			'asalBahasa',
+			'artiNama'
         ]
     }
 

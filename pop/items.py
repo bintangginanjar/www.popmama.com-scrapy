@@ -8,17 +8,13 @@ import scrapy
 from scrapy.item import Item, Field
 from itemloaders.processors import MapCompose, TakeFirst, Join
 
-def removeNewLine(text):
-        text = text.split('\n')
-        text = text[0].lstrip()
-
-        return text
-
 class PopItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    nama = Field(input_processor = MapCompose(removeNewLine), output_processor = TakeFirst())
+    #nama = Field(input_processor = MapCompose(removeNewLine), output_processor = TakeFirst())
+    nama = Field()
     gender = Field()
+    asalBahasa = Field()
     artiNama = Field(output_processor = Join(separator = '; '))
         
     pass
