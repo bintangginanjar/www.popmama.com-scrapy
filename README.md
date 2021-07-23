@@ -44,3 +44,9 @@ Alternatively we can use pip command
 - Simply put following commands into your shell
 
 `scrapy crawl pop`
+
+- If you want the result in specific file just simply put following commands into your shell, result.csv is the output file in csv format, you can change into any file output format you want
+
+`scrapy crawl pop -o result.csv`
+
+- Supported file format are csv & json
