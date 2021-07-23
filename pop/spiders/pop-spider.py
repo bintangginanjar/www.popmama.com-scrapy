@@ -10,7 +10,9 @@ class PopSpider(scrapy.Spider):
 	custom_settings = {
         'FEED_EXPORT_FIELDS': [
             'nama',
-            'artiNama'
+			'gender',
+            'artiNama',
+			'asalBahasa'
         ]
     }
 
@@ -45,7 +47,11 @@ class PopSpider(scrapy.Spider):
 	def parseDetail(self, response):
 		nameItem = response.meta['nameItem']
 
-		loader = ItemLoader(item = nameItem, response = response)
+		loader = ItemLoader(item = nameItem, response = response)		
 		loader.add_css('artiNama', 'div.description > ul > li::text')
+		if (response.css('i.fa-mars')):
+			loader.add_value('gender', 'laki-laki')
+		else:
+			loader.add_value('gender', 'perempuan')
 
 		yield loader.load_item()

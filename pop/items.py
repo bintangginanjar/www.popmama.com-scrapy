@@ -18,6 +18,7 @@ class PopItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     nama = Field(input_processor = MapCompose(removeNewLine), output_processor = TakeFirst())
+    gender = Field()
     artiNama = Field(output_processor = Join(separator = '; '))
-    
+        
     pass
