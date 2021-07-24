@@ -15,7 +15,7 @@ Clone the repo without git :
 - Extract the zip
 
 ## **Install Python using Anaconda**
-- Download Anaconda from following [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
+- Download Anaconda from following URL: [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
 - Follow the installation steps, and make sure python 3 is successfully installed in your machine by type following command : 
 
 `python --version`
@@ -29,6 +29,9 @@ Clone the repo without git :
 - Make sure sqlite is installed by type following command:
 
 `sqlite3 --version`
+
+- Don't forget to install SQLite Browser from following URL: [https://sqlitebrowser.org/](https://sqlitebrowser.org/)
+- SQLite Browser is used for viewing database content
 
 ## **Install Python IDE**
 You can use your favorite IDE :
