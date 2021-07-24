@@ -14,11 +14,21 @@ Clone the repo without git :
 - Download the repo : [Download zip](https://github.com/bintangginanjar/www.popmama.com-scrapy/archive/refs/heads/master.zip)
 - Extract the zip
 
-## **Setup Python using Anaconda**
+## **Install Python using Anaconda**
 - Download Anaconda from following [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
-- Follow the installation steps, and make sure python 3 is successfully installed in your machine : 
+- Follow the installation steps, and make sure python 3 is successfully installed in your machine by type following command : 
 
 `python --version`
+
+## **Install SQLite using Anaconda**
+- SQLite already installed during Anaconda instalation process
+- If SQLite is not installed on your Anaconda distribution, use this command for sqlite installation
+
+`conda install -c anaconda sqlite`
+
+- Make sure sqlite is installed by type following command:
+
+`sqlite3 --version`
 
 ## **Install Python IDE**
 You can use your favorite IDE :
