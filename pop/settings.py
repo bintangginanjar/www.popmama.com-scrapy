@@ -71,7 +71,7 @@ FEED_EXPORTERS = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'pop.pipelines.DataCleanPipeline': 100,
-    'pop.pipelines.DataSavePipeline': 200,
+    'pop.pipelines.DataParseSavePipeline': 200,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

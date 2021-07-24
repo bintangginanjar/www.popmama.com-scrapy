@@ -39,7 +39,6 @@ You can use your favorite IDE :
 - [Visual Code](https://code.visualstudio.com/Download)
 - [Spyder](https://docs.spyder-ide.org/current/installation.html)
 - [Sublime Text](https://www.sublimetext.com/3)
-- etc
 
 ## **Install Scrapy**
 Since we've already install Anaconda, we can install Scrapy using following command

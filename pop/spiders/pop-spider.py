@@ -17,6 +17,7 @@ class PopSpider(scrapy.Spider):
     }
 
 	def start_requests(self):
+		self.logger.info('Start request')
 		sexList = ['male', 'female']
 		alphabetList = list(string.ascii_lowercase)
 
@@ -26,33 +27,64 @@ class PopSpider(scrapy.Spider):
 			for alphabet in alphabetList:
 				targetUrl = baseUrl + '/' + sex + '/' + alphabet
 
-				prodResponse = scrapy.Request(targetUrl, callback = self.parse)
+				prodResponse = scrapy.Request(targetUrl, callback = self.parseName)
 				prodResponse.meta['dont_cache'] = True
 
 				yield prodResponse
 
-	def parse(self, response):
-		rows = response.css('div.result-content li')		
+	def parseName(self, response):
+		self.logger.info('Parse')
+		#rows = response.css('div.result-content li')
 
-		for row in rows:
-			loader = ItemLoader(item = PopItem(), selector = row)
-			loader.add_css('nama', 'a::text')
+		#for row in rows:
+		for row in response.css('div.result-content li'):
+			#loader = ItemLoader(item = PopItem(), selector = row)
+			#loader.add_css('nama', 'a::text')
 
-			nameItem = loader.load_item()
+			#nameItem = loader.load_item()
 			detailUrl = row.css('a::attr(href)').get()
 
-			yield response.follow(detailUrl, self.parseDetail, meta = {'nameItem': nameItem})
+			#yield response.follow(detailUrl, self.parseDetail, meta = {'nameItem': nameItem})
+			yield response.follow(detailUrl, self.parseDetail)
 		
-
 	def parseDetail(self, response):
-		nameItem = response.meta['nameItem']
+		self.logger.info('Parse detail')
+		#nameItem = response.meta['nameItem']
 
+		artiNamaList = response.css('div.description > ul > li::text').extract()
+				
+		if (len(artiNamaList) > 0):
+			for row in artiNamaList:
+				self.logger.info(response.url)
+				loader = ItemLoader(item = PopItem(), response = response)
+				loader.add_css('nama', 'h2.h3::text')
+				loader.add_value('artiNama', row)
+				if (response.css('i.fa-mars')):
+					loader.add_value('gender', 'Laki-laki')
+				else:
+					loader.add_value('gender', 'Perempuan')
+
+				yield loader.load_item()
+		else:
+			self.logger.info(response.url)
+			loader = ItemLoader(item = PopItem(), response = response)
+			loader.add_css('nama', 'h2.h3::text')
+			loader.add_value('artiNama', '')
+			if (response.css('i.fa-mars')):
+				loader.add_value('gender', 'Laki-laki')
+			else:
+				loader.add_value('gender', 'Perempuan')
+
+			yield loader.load_item()		
+
+		'''
 		loader = ItemLoader(item = nameItem, response = response)		
 		loader.add_css('artiNama', 'div.description > ul > li::text')
 		if (response.css('i.fa-mars')):
-			loader.add_value('gender', 'laki-laki')
+			loader.add_value('gender', 'Laki-laki')
 		else:
-			loader.add_value('gender', 'perempuan')
+			loader.add_value('gender', 'Perempuan')
 		#loader.add_value('asalNama', 'default')
 
 		yield loader.load_item()
+		'''

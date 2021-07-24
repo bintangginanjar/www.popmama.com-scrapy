@@ -29,34 +29,67 @@ class DataCleanPipeline(object):
 
         return item
 
-class DataParsePipeline(object):
-    def __init__(self):
-        logging.info("****Data parsing****")
-
-
-class DataSavePipeline(object):
+class DataParseSavePipeline(object):
     def __init__(self):
         logging.info("****Data saving****")
-
-        """
-        Initializes database connection and sessionmaker
-        Creates tables
-        """
-
+        
+        # Initializes database connection and sessionmaker
         engine = dbConnect()
+        # Creates table
         createTable(engine)
         self.Session = sessionmaker(bind=engine)
         logging.info("****Database connected****")
 
     def process_item(self, item, spider):
+
+        def splitArtiNama(x):
+            text = x.split(';')
+
+            return text
+
         adapter = ItemAdapter(item)
         session = self.Session()
+
         name = Name()
 
+        if adapter.get('artiNama'):
+            # split artiNama into several part using semicolon
+            #name.artiNama = item['artiNama']
+            #for x in splitArtiNama(item['artiNama']):
+            y = item['artiNama'].split(':')
+
+            name.nama = item['nama']
+            name.gender = item['gender'][0]
+            name.artiNama = y[0]
+            name.asalNama = y[1].lstrip()
+
+            try:
+                session.add(name)
+                session.commit()
+            except:
+                session.rollback()
+                raise
+            finally:
+                session.close()            
+        else:
+            name.nama = item['nama']            
+            name.gender = item['gender'][0]
+            name.asalNama = ''
+            name.artiNama = ''
+
+            try:
+                session.add(name)
+                session.commit()
+            except:
+                session.rollback()
+                raise
+            finally:
+                session.close()    
+        '''
         if adapter.get('nama'):            
             name.nama = item['nama']
 
-        if adapter.get('gender'):            
+        if adapter.get('gender'):  
             name.gender = item['gender'][0]
         
         if adapter.get('asalNama'):
@@ -77,5 +110,6 @@ class DataSavePipeline(object):
             raise
         finally:
             session.close()
+        '''
 
         return item
